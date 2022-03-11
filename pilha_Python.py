@@ -57,4 +57,8 @@ class Stack:
 
         
     
+<<<<<<< HEAD
         
+=======
+        
+>>>>>>> 45608ec4820f5fb8ef85fb4d6a5919b3fdd00fed
