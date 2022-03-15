@@ -8,7 +8,8 @@ class Stack:
         self.cont += 1
         self.__stack.append(str)
     def pop(self):
-        self.__stack.pop()
+        for i in range(len(self.__stack)):     
+            print(self.__stack[i])
 
     def empty(self):
         if self.__stack is None:
@@ -29,8 +30,8 @@ class Stack:
         print(self.capacity)
 
 
-    opcao = input("1 - Adicionar item no inicio \n2 - Adicionar item no final \n3 - Verificar se a pilha possui strings \n4 - Verificar se a pilha está cheia \n5 - Tamanho da pilha \n6 - Capacidade da pilha \n Opção:")
- while True:
+opcao = input("1 - Adicionar item no inicio \n2 - Adicionar item no final \n3 - Verificar se a pilha possui strings \n4 - Verificar se a pilha está cheia \n5 - Tamanho da pilha \n6 - Capacidade da pilha \n Opção:")
+while True:
     pilha = Stack()
     if opcao == 1:
         for i in range(1, 1001):
@@ -57,8 +58,4 @@ class Stack:
 
         
     
-<<<<<<< HEAD
         
-=======
-        
->>>>>>> 45608ec4820f5fb8ef85fb4d6a5919b3fdd00fed
