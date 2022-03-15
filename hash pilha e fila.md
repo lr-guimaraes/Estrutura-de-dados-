@@ -336,3 +336,11 @@ Tipicamente estas listas são diretas, circulares ou bidirecionais
 ## Bidimenticonais
 
 head <-> item <-> item <-> tail -> null
+
+As listas encadeadas  são a ADT que permite o menor custo cuomputacional para inserção e remoção de itens. Bastando apenas a gestão de endereços
+
+### Incerção
+<image src = "image/inserção.png">
+
+### Remoção
+<image src = "image/remoção.png">
