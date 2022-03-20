@@ -1,37 +1,43 @@
+import java.util.Scanner;
+
 public class Operation {
 
     public static void main(String[] args){
+        
         float value;
         float result;
-        char op, resp;
-        Scaner keyboard = new Scaner(Systen.in);
+        char op;
+        char resp;
+        Scanner keyboard = new Scanner(System.in);
 
         System.out.println("Value: ");
-        result = keyboard.nextfloat();
+        result = keyboard.nextFloat();
         do{
             System.out.println("Value: ");
-            value = keyboard.nextfloat();
+            value = keyboard.nextFloat();
             System.out.println("Operation: ");
-            op = keyboard.nextchar();
+            op = keyboard.nextLine();
             operation(op, result, value);
-
+            System.out.println("Coninue {Y,N}: ");
+            resp = keyboard.nextLine();
         }while(resp == "N");
         
     }
+
     public static float operation(char op, float result, float value){
     
-        if(op == "+"){
+        if(op.equals("+")){
             result +=  value;
         }
-        elif(op == "-"){
+        else if(op.equals("-")){
             result -= value;        
-        }elif(op ==""){
+        }else if(op.equals("*")){
             result = result * value;
-        }elif(op == "/"){
-            if (value; != 0){
+        }else if(op.equals("/")){
+            if (value != 0){
                 result = result / value;
             }else{
-                printf("Nao e possvel dividir por 0");
+                System. out.println("Nao e possvel dividir por 0");
             }
         }
         return result;

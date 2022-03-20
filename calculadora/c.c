@@ -1,42 +1,53 @@
 #include <stdio.h>
+#include <string.h>
 
-void operation(char, float *, float *);
+void operation(char*, float *, float *);
 
 int main(){
-    float inp; float x;
-    char *op[1];
-    char *resp[1];
+    float inp, x;
+    char op[1], resp[1];
 
-    setbuf;
+
+    setbuf(stdin, NULL);
     printf("Value: "); 
     scanf("%f", &x);
-    do{
-        printf("Value: "); 
-        scanf("%f",&inp);
-        printf("Operation: ");
-        gets(op);
-        operation(op[0], &x, &inp);
-
-    }while(resp[0] == "Y");
+ 
+  
+ do{
+    printf("\n");
+    printf("Value: "); 
+    scanf("%f",&inp);
+    setbuf(stdin, NULL);
+    printf("Operation: ");
+    fgets(op,2, stdin);
+    operation(op, &x, &inp);
+    setbuf(stdin, NULL);
+    printf("\n Continue {Y, N}: ");
+    fgets(resp,2, stdin);
+    
+    }while(strcmp(toupper(resp), "N") == 0);
 
     return 0;
 }   
 
-void operation(char op, float *x, float *inp){
+void operation(char* op, float *x, float *inp){
     float result;
 
-    if(op == "+"){
+    if(strcmp(op, "+") == 0){
         result = *x + *inp;
-    }
-    elif(op == "-"){
-        result = *x - *inp;        
-    }elif(op =="*"){
-        result = *x * *inp;
-    }elif(op == "/"){
-        if (*inp != 0){
+        printf("Restult: %f",result);
+    }else if (strcmp(op, "-") == 0){
+        result = *x - *inp;
+        printf("Restult: %f",result);
+    }else if(strcmp(op, "*") == 0){
+        result = *x + *inp;
+        printf("Restult: %f",result);
+    }else{
+        if (inp != 0){
             result = *x / *inp;
+            printf("Restult: %f",result);
         }else{
-            printf("Nao e possvel dividir por 0");
+            printf("ERRO! division to 0");
         }
     }
     *x = result;
