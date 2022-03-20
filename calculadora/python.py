@@ -1,6 +1,3 @@
-import re
-
-
 class Operation:    
     def __init__(self, value, result, operation):
         self.value = value 
