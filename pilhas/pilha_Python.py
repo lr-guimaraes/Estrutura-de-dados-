@@ -1,27 +1,29 @@
+import time
+
 class Stack:
     def __init__(self):
         self.__stack = [] 
         self.cont = 0
-        self.capacity = 1000
-    
+        self.capacity = 10 
+  
     def push(self, str):
         self.cont += 1
-        self.__stack.append(str)
+        self.__stack.insert(0,str)
+        
     def pop(self):
-        for i in range(len(self.__stack)):     
-            print(self.__stack[i])
+        print(self.__stack)
 
     def empty(self):
         if self.__stack is None:
-            print("A pilha está vazia")
+            print("The stack is empty")
         else:
-            print ("A pilha não está vazia")
+            print ("The stack is not empty")
 
     def full(self):#arrumar 
-        if len(self.__stack) < 1000:
-            print("A lista não está cheia")
+        if len(self.__stack) < 10:
+            print("The stack is not full")
         else:
-            print("A pilha esta cheia")
+            print("the stack is full")
             
     def lenght(self):
         return len(self.__stack)
@@ -29,33 +31,67 @@ class Stack:
     def capacit(self):
         print(self.capacity)
 
-
-opcao = input("1 - Adicionar item no inicio \n2 - Adicionar item no final \n3 - Verificar se a pilha possui strings \n4 - Verificar se a pilha está cheia \n5 - Tamanho da pilha \n6 - Capacidade da pilha \n Opção:")
-while True:
-    pilha = Stack()
-    if opcao == 1:
-        for i in range(1, 1001):
-            pilha.push(i)
-            print(pilha.lenght())
-        pilha.pop()
-    elif opcao == 2:
-        pilha.pop()
-        print(pilha.lenght())
-    elif opcao == 3:
-        pilha.empty()
-    elif opcao == 4:
-        pilha.full()
-    elif opcao == 5:
-        pilha.lenght()
-    elif opcao == 6:
-        pilha.capacit()
-
-    question = (input("Deseja continuar? {S/N}: "))
-    if (question.upper() == "N"):
-        False
-    elif (question.upper() != "S" or != "N"):
-        print("Resposta inexistente")
-
+    def TimeSum(self):
+        start = time.time()
+        sum(self.__stack)
+        end = time.time()
+        print("Sum: ",sum(self.__stack))
+        print("Runtime: ", end - start, "second")
         
+class Fist_InOut:
+    def __init__(self):
+        self.__io = [] #io -> In Out
+        self.cont = 0
+        self.capacity = 10
     
+    def push(self, str):
+        self.cont += 1
+        self.__io.append(str)
+    
+    def pop(self):
+        print(self.__io)
         
+
+    def empty(self):
+        if self.__io is None:
+            print("The list is empty")
+        else:
+            print ("The list is not empty")
+
+    def full(self):#arrumar 
+        if len(self.__io) < 10:
+            print("The list is not full")
+        else:
+            print("The list is full")
+            
+    def lenght(self):
+        return len(self.__io)
+
+    def capacit(self):
+        print(self.capacity)
+
+    def TimeSum(self):
+        start = time.time()
+        sum(self.__io)
+        end = time.time()
+        print("Sum: ", sum(self.__io))
+        print("Run time:" ,end - start, "second")
+
+def main():
+
+    list = Fist_InOut()
+    pilha = Stack()
+    i= 0
+    for i in range(10):
+        list.push(i)
+        pilha.push(i)
+
+    print("=====Stack=====")
+    pilha.pop()
+    pilha.TimeSum()
+    print("====First in First out ====")
+    list.pop()
+    list.TimeSum()
+
+if __name__ == "__main__":
+    main()

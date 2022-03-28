@@ -1,0 +1,2 @@
+
+    start2 = clock();
