@@ -1,70 +1,185 @@
-#include <stdio.h>
+#include <iostream>
+#include <string.h>
+#include <time.h>
+#define LEN 10
 
-class Stack{
-    private:
-    
-        char stack = [];
-        void Push();
-        char Pop();
-        bool Empty();
-        bool Full();
-        int Lenght();
-        int Capacity();
-}   
-void Push:: Push(){
-    for ;
-}
-char Pop:: Pop(){
-    for (i = 0; i == lenght(stack);i ++ ){
-        printf(stack[i]);
-    }
-}
-bool Empty:: Empty(){
-    if stack == NULL{
-        return true
-    }else{
-        return false
-    }
-}
-bool Full:: Full(){
-    if stack == 1000{
-        return true
-    }else{
-        return false
-    }
-}
-int Lenght:: Lenght(){
-    return sizeof(stack);
-}
-int capacity:: capacity(){
-    return 1000;
-}
-int main(){
-    
-    int option;
-    printf("1 - Adicionar item no inicio \n2 - Ler itens \n3 - Verificar se a pilha possui strings \n4 - Verificar se a pilha está cheia \n5 - Tamanho da pilha \n6 - Capacidade da pilha");
-    print("Option: ");
-    test = Stack();
-    scanf("%d", &option);
-    switch(option){
-        case 1:
-            for (i = 0; i< 1000; i++){
-                test.push(i);
-            }
-        case 2:
-            pop();
-        case 3: 
-            empty();
-        case 4: 
-            full();
-        case 5:   
-            lenght();
-        case 6: 
-            capacity();
-
-        default:
-            printf("this option does not exist");       
+class Stack {
+    public:
+        int st[LEN];
+        void push_s(int); //to Stack
+        void pop_s();
+        void TimeSum_s();
         
+};
+
+class First_InOut {
+    public:
+        int io[LEN] ;
+        void push_f(int); //to First_InOut
+        void pop_f();
+        void TimeSum_f();
+        
+};
+
+void empty();
+void full();
+void lenght();
+void capacity();
+
+
+int main(){
+    Stack stack;
+    First_InOut f_io;
+    for(int i = 0; i <LEN; i++){
+    //    stack.push_s(i);
+        f_io.push_f(i);
+
+    }
+   // stack.TimeSum_s();
+    f_io.TimeSum_f();
+    
+    return 0;
+}
+
+void Stack::push_s(int value){ 
+
+   // int i = (LEN - sizeof(Stack::st));
+    
+    for(int i = LEN; i > 0; i--){
+        Stack::st[i] = value;
+      
+        std::cout <<""<< Stack::st[i];
+    }
+};
+void First_InOut::push_f(int value){ 
+    
+    int i = sizeof(First_InOut::io) ;
+
+    First_InOut::io[i] = value;
+    
+  for(int i = 0; i <LEN; i++){
+  std::cout <<", "<<First_InOut::io[i];
+    }
+};
+
+//void pop(){ }
+
+void empty(){ 
+
+    int resp;
+
+    std::cout <<"check \n 1 - stack \n 2 - row\n";
+    std::cin >> resp;
+    if (resp == 1){
+        if (sizeof(Stack::st) == 0){
+            std:: cout<<"The stack is empty";
+        }else{
+           std:: cout<<"The stack is not empty";
         }
-        return 0;
+    }else if (resp == 2){
+        if (sizeof(First_InOut::io) == 0){
+            std:: cout<<"The row is empty";
+        }else{
+           std:: cout<<"The row is not empty";
+        }
+    }else{
+       std:: cout<<"ERRO! option invalid";
+    }
+}
+
+void full(){
+    int resp;
+
+   std:: cout<<"check 1 - stack \n 2 - row\n";
+   std:: cin >>resp;
+    if (resp == 1){
+        if (sizeof(Stack::st) == LEN){
+            std:: cout<<"The stack is full";
+        }else{
+           std:: cout<<"The stack is not full";
+        }
+    }else if (resp == 2){
+        if (sizeof(First_InOut::io) == LEN){
+            std:: cout<<"The row is full";
+        }else{
+           std:: cout<<"The row is not full";
+        }
+    }else{
+       std:: cout<<"ERRO! option invalid";
+    }
+
+}
+
+void lenght(){
+
+    int resp;
+
+   std:: cout<<"check \n 1- stack \n 2 - row\n";
+   std:: cin >>resp;
+    if (resp == 1){
+       std:: cout<<"" <<sizeof(Stack::st);
+    }else if (resp == 2){
+       std:: cout<<""<<sizeof(First_InOut::io);
+    }else{
+       std:: cout<<"ERRO! option invalid";
+    }
+
+}
+
+void capacity(){
+    int resp;
+
+   std::cout<<"check 1 - stack \n 2 - row\n";
+   std::cin >>resp;
+    if (resp == 1){
+       std:: cout<<"Stack capacity: \n" <<LEN- sizeof(Stack::st);
+    }else if (resp == 2){
+       std:: cout<<"Row capacity: \n" <<LEN - sizeof(First_InOut::io);
+    }else{
+       std:: cout<<"ERRO! option invalid";
+
+    }
+}
+
+void Stack::TimeSum_s(){
+  
+    clock_t start, end;
+    double Tstack;
+    int sum = 0;
+    
+    start = clock();
+
+   std:: cout<<"Stack\n";
+    for (int i = 0; i  <LEN; i++){
+        sum += Stack::st[i];
+     std:: cout<<" , " << Stack::st[i];
+    }
+    std:: cout<<"\n";
+    end = clock();
+    Tstack = (double)( end - start);
+    
+    std:: cout<<"\n====Stack====\n";
+    std:: cout<<"Sum: "<< sum;
+    std:: cout<<"\ntest: "<< Stack::st;
+    std:: cout<<"\n secound \n"<< Tstack;
+
+
+}
+void First_InOut::TimeSum_f(){
+    
+    clock_t start, end;
+    double Trow;
+    int sum = 0;
+
+    start = clock();
+    for (int i = 0; i <LEN; i++){
+        sum += First_InOut::io[i];
+    }
+    end = clock();
+    Trow = (double)(end - start);
+
+  
+   std:: cout<<"====Row====\n";
+   std:: cout<<"Sum: "<< sum;
+   std:: cout<<" secound"<< Trow;
 }
