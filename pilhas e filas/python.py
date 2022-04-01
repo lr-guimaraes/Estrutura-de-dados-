@@ -1,5 +1,6 @@
 '''
 Guilherme Janke
+Gabrielle Batista
 Leandro Ricardo Guimarães
 Matheus Herman
 '''
