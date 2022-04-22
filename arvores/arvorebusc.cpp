@@ -1,3 +1,4 @@
+// Leandro Ricardo Guimarães, Guimarães
 #include <iostream>
 #include <cstdlib>
 #include <time.h>
