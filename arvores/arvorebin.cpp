@@ -116,4 +116,5 @@ void BinaryTree::simetric_tranvesal(){
     }else if (no.getRight()){
         simetric_tranvesal(no.getRight());
         std:: cout<<no.getRight();
+    }
 }
