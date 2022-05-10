@@ -33,6 +33,8 @@ class Fork{
 
         int getCount_edge();
         void setCount_edge();
+
+        void shortest_way(int);
 }; 
 
 int main(){
@@ -104,13 +106,33 @@ void Fork::createFork(){
                     weight = (rand() % 19 + 1);
                     //Prize draw the link
                     setCount_edge(i,1);
-                    setWeight(i,vertex,weight); 
-                    counter++;
+                    setWeight(i,vertex,weight);
                 }while(getCount_edge(i) <= num_edge);
             }
         }
     }
 }
+void Fork::shortest_way(int origin, int final){
+    int start,counter, it;
+    do{
+        for(int i = 0; i <30; i++){
+            if(start == getItens(i)){
+                it = getCount_edge(i);            
+            }
+        }
+        if (start > 0){
+            for(int i = 0; i <start; i++){
+                
+            }
+        }else{
+            std:: cout<<"Not has path";
+        }
+    }while(it != counter);
+}
+
+
+
+
 
 void Fork::DisplayFork(){
     int counter;
